@@ -1,0 +1,25 @@
+pipeline{
+	agent any
+      tools{
+              jdk:'jdk 21'
+          }
+		stages{
+				stage('Checkout'){
+						steps{
+										git branch:'main', url:'https://github.com/mca014ashritha-design/j'
+							}
+					}
+		stage('Compile'){
+				steps{
+							echo "Compiling Java Program.."
+              sh "javac HelloWorld.java"
+				}
+		}
+		stage('Run'){
+				steps{
+					echo "Running Java Program..."
+          sh "java HelloWorld"
+				}
+		}
+	}
+}
