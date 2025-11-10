@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+           tools {
+        python 'Python3'
+    }
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/mca014ashritha-design/j'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                echo "Running Python program..."
+                sh "pro1.py"
+            }
+        }
+    }
+}
