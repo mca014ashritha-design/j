@@ -1,0 +1,30 @@
+pipeline{
+	agent any
+		stages{
+				stage('Checkout'){
+						steps{
+										git branch:'main', url:'https://github.com/mca014ashritha-design/j'
+							}
+					}
+		stage('Started'){
+				steps{
+							echo "From git pipeline started"
+				}
+		}
+		stage('Completed'){
+				steps{
+					echo "From git pipeleine completed"
+				}
+		}
+      stage('Compile'){
+				steps{
+					echo "Compile source code"
+				}
+		}
+      stage('Test'){
+				steps{
+					echo "Running unit test"
+				}
+		}
+	}
+}
