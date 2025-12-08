@@ -12,6 +12,9 @@ pollSCM('* * * * *')
 										git branch:'main', url:'https://github.com/mca014ashritha-design/j'
 							}
 					}
+
+
+
 		stage('Bulid'){
 				steps{
 							echo "Building.."
