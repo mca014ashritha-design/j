@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    triggers {
+        cron('* * * * *')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/mca014ashritha-design/j'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Building..."
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Testing..."
+            }
+        }
+    }
+}
