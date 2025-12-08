@@ -1,29 +1,27 @@
-pipeline{
-	agent any
-      triggers{
-pollSCM('* * * * *')
-}
+pipeline {
+    agent any
 
+    triggers {
+        pollSCM('* * * * *')
+    }
 
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/mca014ashritha-design/j'
+            }
+        }
 
-		stages{
-				stage('Checkout'){
-						steps{
-										git branch:'main', url:'https://github.com/mca014ashritha-design/j'
-							}
-					}
+        stage('Build') {
+            steps {
+                echo "Building..."
+            }
+        }
 
-
-
-		stage('Bulid'){
-				steps{
-							echo "Building.."
-				}
-		}
-		stage('Test'){
-				steps{
-					echo "Testing..."
-				}
-		}
-	}
+        stage('Test') {
+            steps {
+                echo "Testing..."
+            }
+        }
+    }
 }
